@@ -6,14 +6,20 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-# Create a connection to the database
-engine = f"mysql+pymysql://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}/{os.getenv('MYSQL_DATABASE')}"
+dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+load_dotenv(dotenv_path=dotenv_path)
+
+# Create a connection to the database using the environment variables
+engine = create_engine(
+    f"mysql+pymysql://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}/{os.getenv('MYSQL_DATABASE')}"
+)
 
 # Create a session
 Session = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
-# Create a base class
+# Create a base class for declarative models
 Base = declarative_base()
+
 
 
 # Create the tables in the database
