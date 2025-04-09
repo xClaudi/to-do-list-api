@@ -1,17 +1,48 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
 *.log
 
-# Virtual environment
+
+# Bytecode & compiled files
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+
+# Virtual environments
+venv/
+env/
+.myenv/
 myenv/
 
-# VSCode
+
+# Editor/IDE
 .vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# Test coverage
-htmlcov/
+# Pytest & coverage
+.pytest_cache/
 .coverage
+coverage.xml
+htmlcov/
+.cache/
 
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# Docker
+*.pid
+
+
+# OS files
+.DS_Store
+Thumbs.db
