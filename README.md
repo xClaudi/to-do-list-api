@@ -85,7 +85,7 @@ VALUES ('test', 'secret'), ('user', 'password');
 
 6. **Configure environment variables:**
 
-An example `.env` file is already included in the project directory — simply open it and fill in the necessary values. For example:
+Make a copy of `.env.example` and rename it to `.env`, then fill in your own values. For example:
 
    ```ini
    MYSQL_HOST=localhost
