@@ -169,7 +169,7 @@ This runs the app on [http://localhost:8000](http://localhost:8000), reading you
 > ```
 >  Linux:
 > ```bash
->   docker run --env-file .env --network="host" todo-api pytest -v
+> docker run --env-file .env --network="host" todo-api pytest -v
 > ```
 > However, it's generally easier to run tests locally using your virtual environment
 
