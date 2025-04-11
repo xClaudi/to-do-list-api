@@ -134,14 +134,25 @@ The API will be accessible at [http://localhost:8000](http://localhost:8000).
 ## Running with Docker (optional)
 
 1.  **Make sure `.env` is in your project root.**
+2.  **Update your .env file (Windows/Mac users):**
+If you're running MySQL outside of Docker (e.g. locally installed), and using Docker on Windows or macOS, change the host to:
+```env
+MYSQL_HOST=host.docker.internal
+```
+> **On Linux, you can usually keep localhost.:**
     
-2.  **Build the Docker image:**
+4.  **Build the Docker image:**
 ```bash
 docker build -t todo-api .
 ```
 3.  **Run the container with `.env`:**
+On Windows:
 ```bash
 docker run --env-file .env -p 8000:8000 todo-api
+```
+On Linux:
+```bash
+docker run --env-file .env --network="host" todo-api
 ```
 This runs the app on [http://localhost:8000](http://localhost:8000), reading your MySQL credentials from `.env`.
 
