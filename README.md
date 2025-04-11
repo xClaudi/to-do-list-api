@@ -141,11 +141,12 @@ MYSQL_HOST=host.docker.internal
 ```
 > **On Linux, you can usually keep localhost.:**
     
-4.  **Build the Docker image:**
+3.  **Build the Docker image:**
 ```bash
 docker build -t todo-api .
 ```
-3.  **Run the container with `.env`:**
+4.  **Run the container with `.env`:**
+   
 On Windows:
 ```bash
 docker run --env-file .env -p 8000:8000 todo-api
