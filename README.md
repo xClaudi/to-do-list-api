@@ -140,7 +140,7 @@ If you're running MySQL outside of Docker (e.g. locally installed), and using Do
 ```env
 MYSQL_HOST=host.docker.internal
 ```
-> **On Linux, you can usually keep localhost.:**
+> **On Linux, you can usually keep localhost.**
     
 3.  **Build the Docker image:**
 ```bash
@@ -157,16 +157,20 @@ On Linux:
 ```bash
 docker run --env-file .env --network="host" todo-api
 ```
-
 This runs the app on [http://localhost:8000](http://localhost:8000), reading your MySQL credentials from `.env`.
+>**Note: When using --network="host" on Linux, the -p option is ignored.**
 
 > **Note on testing inside Docker:**  
 > Tests are not automatically executed when running the container. If you want to run tests inside the Docker container, you can do so with:
-> 
+>
+>  Windows/macOS:
 > ```bash
 > docker run --env-file .env todo-api pytest -v
 > ```
-> 
+>  Linux:
+> ```bash
+>   docker run --env-file .env --network="host" todo-api pytest -v
+> ```
 > However, it's generally easier to run tests locally using your virtual environment
 
 ## Testing
