@@ -69,21 +69,10 @@ CREATE DATABASE task;
 CREATE DATABASE test;
 ```
 
-5.  **Insert default users (for login):**
-    
-
-In the `task` database, manually insert default users for login/authentication. Example using SQL:
 
 
-```sql
-USE task;
-INSERT INTO users (users_username, users_hashed_password)
-VALUES ('test', 'secret'), ('user', 'password');
-```
-**Note**: These are pre-set plain text passwords used only for testing/development. In production, store hashed passwords securely.
 
-
-6. **Configure environment variables:**
+5. **Configure environment variables:**
 
 Make a copy of `.env.example` and rename it to `.env`, then fill in your own values. For example:
 
@@ -110,13 +99,27 @@ Copy the generated string and paste it as the value for `SECRET_KEY` in your `.e
 > **Why this matters:**  
 > `SECRET_KEY` is used to sign JWT tokens. If it’s too short, predictable, or reused across environments, it could lead to security vulnerabilities. Make sure to use a **long, random, and unique** key and never expose it publicly.
 
- 7. **Run database migrations:**
+ 6. **Run database migrations:**
 
 This app uses **Alembic** for migrations. After configuring your `.env` file, apply all migrations to initialize the `task` database schema:
 
  ```bash
 alembic upgrade head
 ```
+
+7.  **Insert default users (for login):**
+    
+
+In the `task` database, manually insert default users for login/authentication. Example using SQL:
+
+
+```sql
+USE task;
+INSERT INTO users (users_username, users_hashed_password)
+VALUES ('test', 'secret'), ('user', 'password');
+```
+**Note**: These are pre-set plain text passwords used only for testing/development. In production, store hashed passwords securely.
+
 
 
 8. **Run the application:**
